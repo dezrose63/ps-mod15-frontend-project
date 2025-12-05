@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import { useEffect, useState } from "react";
 import { apiClient } from "../clients/api";
 import { useParams } from "react-router-dom";
@@ -31,18 +30,23 @@ function ProjectDetailsPage() {
 
 
   useEffect(() => {
-    const fetchProjectTasks = async () => {
-        try {
-            const tasks = await apiClient.get(`/api/projects/${projectId}/tasks`);
-            // state
-            // loading error
-        } catch (error) {
-            console.error(error);
+    // const fetchProjectTasks = async () => {
+    //     try {
+    //         const tasks = await apiClient.get(`/api/projects/${projectId}/tasks`);
+    //         // state
+    //         // loading error
+    //     } catch (error) {
+    //         console.error(error);
             
-        }
-    }
+    //     }
+    // }
     // fetchProjectTasks()
-  }, [projectId])
+  }, [projectId]);
+
+
+  if (loading) return <div className="text-3xl text-white">Loading...</div>;
+
+  if (error) return <div className="text-3xl text-white">Error loading Project</div>;
 
   return (
     <div className="text-white">
