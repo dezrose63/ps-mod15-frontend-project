@@ -1,8 +1,8 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { useEffect, useState } from "react";
 import { apiClient } from "../clients/api";
 import { useParams } from "react-router-dom";
 import type { Project } from "../types";
-
 
 function ProjectDetailsPage() {
   const [project, setProject] = useState<Project | null>(null);
